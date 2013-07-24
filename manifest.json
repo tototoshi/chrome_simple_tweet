@@ -1,0 +1,20 @@
+{    
+    "manifest_version":2,
+    "name":"Chrome Simple Tweet",
+    "description":"Post to Twitter simply",
+    "version":"0.1",
+
+    "permissions": [
+        "contextMenus"
+    ],
+
+    "icons": {
+        "16": "twitter.png",
+        "48": "twitter.png",
+        "128": "twitter.png"
+    },
+
+    "background": {
+        "scripts": ["twitter.js"]
+    }
+}

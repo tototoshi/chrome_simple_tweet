@@ -1,20 +1,33 @@
-{    
+{
     "manifest_version":2,
     "name":"Chrome Simple Tweet",
     "description":"Post to Twitter simply",
     "version":"0.1",
 
     "permissions": [
-        "contextMenus"
+        "contextMenus",
+        "tabs",
+        "http://*/*",
+        "https://*/*"
     ],
 
     "icons": {
-        "16": "twitter.png",
-        "48": "twitter.png",
-        "128": "twitter.png"
+        "16": "images/twitter.png",
+        "48": "images/twitter.png",
+        "128": "images/twitter.png"
     },
 
     "background": {
         "scripts": ["twitter.js"]
+    },
+
+    "browser_action": {
+        "default_icon": {
+            "19": "images/twitter.png",
+            "38": "images/twitter.png"
+        },
+        "default_title": "Chrome simple tweet",
+        "default_popup": "popup.html"
     }
+
 }

@@ -26,11 +26,18 @@ chrome.tabs.getSelected(null, function(tab) {
     chrome.tabs.executeScript( {
         code: "var s = document.getSelection(); (s ? s.toString() : '')"
     }, function(selectedText) {
-        selectedText = (selectedText instanceof Array) ? selectedText.toString() : selectedText;
-        if (selectedText === '') {
+        var text = null;
+        if (typeof selectedText == "undefined") {
+            text = '';
+        } else if (selectedText instanceof Array) {
+            text = selectedText.toString();
+        } else {
+            text = selectedText;
+        }
+        if (text === '') {
             window.open(getTweetURL(createMessage(title, url)));
         } else {
-            window.open(getTweetURL(createMessage(selectedText, url)));
+            window.open(getTweetURL(createMessage(text, url)));
         }
     });
 

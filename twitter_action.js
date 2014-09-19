@@ -7,16 +7,11 @@ var getTweetURL = function (text) {
     }
 };
 
-var createMessage = function(text, url) {
-    return '"' + text + '" ' + url;
-};
-
 var tweet = function() {
     chrome.tabs.create({
         "url": getTweetURL()
     })
 };
-
 
 chrome.tabs.getSelected(null, function(tab) {
 
@@ -35,9 +30,9 @@ chrome.tabs.getSelected(null, function(tab) {
             text = selectedText;
         }
         if (text === '') {
-            window.open(getTweetURL(createMessage(title, url)));
+            window.open(getTweetURL('"' + title + '" ' + url));
         } else {
-            window.open(getTweetURL(createMessage(text, url)));
+            window.open(getTweetURL('"' + text + '" / ' + title + ' ' + url));
         }
     });
 

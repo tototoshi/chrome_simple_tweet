@@ -7,12 +7,6 @@ var getTweetURL = function (text) {
     }
 };
 
-var tweet = function() {
-    chrome.tabs.create({
-        "url": getTweetURL()
-    })
-};
-
 chrome.tabs.getSelected(null, function(tab) {
 
     var title = tab.title;
